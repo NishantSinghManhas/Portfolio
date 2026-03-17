@@ -152,6 +152,25 @@ footer{text-align:center;padding:20px;color:#8892b0;}
   color: #8892b0;
   font-size: 14px;
 }
+
+.filters {
+  margin-bottom: 30px;
+}
+
+.filters button {
+  margin: 5px;
+  padding: 8px 15px;
+  border: none;
+  background: #112240;
+  color: #64ffda;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.filters button:hover {
+  background: #64ffda;
+  color: #0a192f;
+}
 </style>
 </head>
 
@@ -177,7 +196,7 @@ footer{text-align:center;padding:20px;color:#8892b0;}
   </div>
 
   <div class="hero-img">
-    <img src="images/image.avif" alt="developer">
+    <img src="images/image.jpg" alt="developer">
   </div>
 </div>
 
@@ -206,26 +225,40 @@ I am particularly interested in building efficient, responsive, and high-perform
 
 <section id="skills" class="fade">
   <h2>02. Skills</h2>
+
+  <!-- FILTER BUTTONS -->
+  <div class="filters">
+    <button onclick="filterSkills('all')">All Skills</button>
+    <button onclick="filterSkills('programming')">Programming</button>
+    <button onclick="filterSkills('frontend')">Frontend</button>
+    <button onclick="filterSkills('backend')">Backend</button>
+    <button onclick="filterSkills('database')">Database</button>
+    <button onclick="filterSkills('tools')">Tools</button>
+  </div>
+
+  <!-- SKILLS GRID -->
   <div class="skills-grid">
 
-    <div class="skill-card">C<div class="skill-bar"><span style="width:70%"></span></div></div>
-    <div class="skill-card">C++<div class="skill-bar"><span style="width:75%"></span></div></div>
-    <div class="skill-card">Java<div class="skill-bar"><span style="width:85%"></span></div></div>
-    <div class="skill-card">Python<div class="skill-bar"><span style="width:75%"></span></div></div>
+    <div class="skill-card programming">C<div class="skill-bar"><span style="width:70%"></span></div></div>
+    <div class="skill-card programming">C++<div class="skill-bar"><span style="width:75%"></span></div></div>
+    <div class="skill-card programming">Java<div class="skill-bar"><span style="width:85%"></span></div></div>
+    <div class="skill-card programming">Python<div class="skill-bar"><span style="width:75%"></span></div></div>
 
-    <div class="skill-card">HTML<div class="skill-bar"><span style="width:95%"></span></div></div>
-    <div class="skill-card">CSS<div class="skill-bar"><span style="width:85%"></span></div></div>
-    <div class="skill-card">JavaScript<div class="skill-bar"><span style="width:80%"></span></div></div>
-    <div class="skill-card">React<div class="skill-bar"><span style="width:85%"></span></div></div>
+    <div class="skill-card frontend">React<div class="skill-bar"><span style="width:90%"></span></div></div>
+    <div class="skill-card frontend">HTML<div class="skill-bar"><span style="width:95%"></span></div></div>
+    <div class="skill-card frontend">CSS<div class="skill-bar"><span style="width:85%"></span></div></div>
+    <div class="skill-card frontend">JavaScript<div class="skill-bar"><span style="width:90%"></span></div></div>
+    <div class="skill-card frontend">Tailwind CSS<div class="skill-bar"><span style="width:80%"></span></div></div>
 
+    <div class="skill-card backend">Node.js<div class="skill-bar"><span style="width:85%"></span></div></div>
+    <div class="skill-card backend">Express.js<div class="skill-bar"><span style="width:80%"></span></div></div>
 
-    <div class="skill-card">Tailwind CSS<div class="skill-bar"><span style="width:80%"></span></div></div>
+    <div class="skill-card database">MongoDB<div class="skill-bar"><span style="width:80%"></span></div></div>
+    <div class="skill-card database">SQL<div class="skill-bar"><span style="width:75%"></span></div></div>
 
-    <div class="skill-card">Node.js<div class="skill-bar"><span style="width:85%"></span></div></div>
-    <div class="skill-card">Express.js<div class="skill-bar"><span style="width:80%"></span></div></div>
-    <div class="skill-card">MongoDB<div class="skill-bar"><span style="width:75%"></span></div></div>
-
-    <div class="skill-card">Microsoft Excel<div class="skill-bar"><span style="width:70%"></span></div></div>
+    <div class="skill-card tools">Git<div class="skill-bar"><span style="width:85%"></span></div></div>
+    <div class="skill-card tools">GitHub<div class="skill-bar"><span style="width:85%"></span></div></div>
+    <div class="skill-card">Microsoft Excel</div>
 
   </div>
 </section>
@@ -338,6 +371,22 @@ window.addEventListener('scroll',()=>{
     if(rect.top<window.innerHeight-100){el.classList.add('show');}
   });
 });
+
+function filterSkills(category) {
+  const skills = document.querySelectorAll('.skill-card');
+
+  skills.forEach(skill => {
+    if (category === 'all') {
+      skill.style.display = 'block';
+    } else {
+      if (skill.classList.contains(category)) {
+        skill.style.display = 'block';
+      } else {
+        skill.style.display = 'none';
+      }
+    }
+  });
+}
 </script>
 
 </body>
