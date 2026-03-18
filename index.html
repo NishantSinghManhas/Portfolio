@@ -34,13 +34,22 @@ nav a{color:#64ffda;margin:0 15px;text-decoration:none;}
 .hero-text h2{font-size:50px;color:#8892b0;}
 .hero-text p{margin-top:20px;max-width:600px;}
 
-.btn{
-  display:inline-block;margin-top:30px;padding:12px 25px;
-  border:1px solid #64ffda;color:#64ffda;text-decoration:none;
-  transition:0.3s;
+.btn {
+  display: inline-block;
+  padding: 8px 16px;   /* 🔥 smaller */
+  font-size: 14px;
+  border: 1px solid #64ffda;
+  color: #64ffda;
+  text-decoration: none;
+  border-radius: 5px;
+  width: fit-content;  /* 🔥 prevents full width */
+  margin-top: 10px;
 }
 
-.btn:hover{background:#64ffda;color:#0a192f;}
+.btn:hover {
+  background: #64ffda;
+  color: #0a192f;
+}
 
 .hero-img img{
   width:400px;
@@ -90,8 +99,10 @@ section{padding:100px 80px;}
   background:#64ffda;
 }
 
-.projects{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* FORCE 3 CARDS */
+  gap: 20px;
 }
 
 .card{background:#112240;padding:20px;border-radius:10px;transition:0.3s;}
@@ -170,6 +181,71 @@ footer{text-align:center;padding:20px;color:#8892b0;}
 .filters button:hover {
   background: #64ffda;
   color: #0a192f;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;   /* 🔥 CHANGE THIS */
+  background: #0a192f;   /* fills empty space nicely */
+  padding: 10px;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  background: #0a192f;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.card {
+  background: #112240;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  background: #112240;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 🔥 aligns button at bottom */
+  height: 100%;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 🔥 FORCE 3 IN A ROW */
+  gap: 25px;
+}
+
+@media(max-width: 900px){
+  .projects{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 600px){
+  .projects{
+    grid-template-columns: 1fr;
+  }
+}
+.card h3 {
+  margin-top: 10px;
+}
+
+.card p {
+  flex-grow: 1;
+}
+
+.card a {
+  align-self: flex-start;
 }
 </style>
 </head>
@@ -258,7 +334,7 @@ I am particularly interested in building efficient, responsive, and high-perform
 
     <div class="skill-card tools">Git<div class="skill-bar"><span style="width:85%"></span></div></div>
     <div class="skill-card tools">GitHub<div class="skill-bar"><span style="width:85%"></span></div></div>
-    <div class="skill-card tools">Microsoft Excel<div class="skill-bar"><span style="width:70%"></span></div></div>
+    <div class="skill-card tools">Microsoft Excel<div class="skill-bar"><span style="width:50%"></span></div></div>
 
   </div>
 </section>
@@ -327,6 +403,35 @@ I am particularly interested in building efficient, responsive, and high-perform
     <p class="tech">Tech: HTML, CSS, JavaScript, Fetch API</p>
   </div>
 
+</section>
+
+<section id="certifications" class="fade">
+  <h2>Certifications</h2>
+
+  <div class="projects"> <!-- 🔥 ALL CARDS MUST BE INSIDE -->
+
+    <div class="card">
+      <img src="images/oracle.png">
+      <h3>Oracle Cloud Essentials</h3>
+      <p>Completed Oracle Cloud Infrastructure fundamentals course.</p>
+      <a href="images/oracle.png" target="_blank" class="btn">View Certificate</a>
+    </div>
+
+    <div class="card">
+      <img src="images/nptel.jpeg">
+      <h3>NPTEL Privacy & Security</h3>
+      <p>Elite certification in online privacy and security.</p>
+      <a href="images/nptel.jpeg" target="_blank" class="btn">View Certificate</a>
+    </div>
+
+    <div class="card">
+      <img src="images/cipherschool.jpeg">
+      <h3>CipherSchool</h3>
+      <p>Training in DSA from CipherSchool.</p>
+      <a href="images/cipherschool.jpeg" target="_blank" class="btn">View Certificate</a>
+    </div>
+
+  </div>
 </section>
 
 <section id="contact" class="fade">
